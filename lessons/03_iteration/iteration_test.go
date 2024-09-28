@@ -15,3 +15,7 @@ func TestRepeat(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 }
+
+func BenchmarkRepeat(b *testing.B) {
+	Repeat("S", b.N)
+}
