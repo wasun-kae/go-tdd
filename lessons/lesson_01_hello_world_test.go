@@ -1,4 +1,4 @@
-package lesson1_hello_world
+package lesson_01_hello_world
 
 import (
 	"testing"
