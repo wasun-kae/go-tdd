@@ -6,8 +6,8 @@ This repo is for learning [Go language](https://go.dev/)</u> by using Test-Drive
 
 1. Download and install Go from [the official website](https://go.dev/dl/)
 
-2. Run all unit tests with code coverage
+2. Run all unit tests with code coverage (without test result cache)
 
 ```sh
-go test -cover ./...
+go clean -testcache && go test -cover ./...
 ```
