@@ -29,3 +29,36 @@ func TestSumAll(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 }
+
+func TestSumAllTails(t *testing.T) {
+
+	t.Run("should return sum of each given arrays of numbers except first number in array", func(t *testing.T) {
+		number1 := []int{1, 2}
+		number2 := []int{3, 4, 5}
+
+		expected := []int{2, 9}
+		actual := SumAllTails(number1, number2)
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("should return zero if a given array is empty", func(t *testing.T) {
+		number1 := []int{}
+		number2 := []int{3, 4, 5}
+
+		expected := []int{0, 9}
+		actual := SumAllTails(number1, number2)
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("should return zero if a given array has only one element", func(t *testing.T) {
+		number1 := []int{1}
+		number2 := []int{3, 4, 5}
+
+		expected := []int{0, 9}
+		actual := SumAllTails(number1, number2)
+
+		assert.Equal(t, expected, actual)
+	})
+}
