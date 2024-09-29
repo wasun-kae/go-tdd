@@ -9,9 +9,10 @@ import (
 func TestPerimeter(t *testing.T) {
 
 	t.Run("should return perimeter from a given retangle", func(t *testing.T) {
-		width := 10.0
-		height := 5.0
-		retangle := Retangle{width, height}
+		retangle := Retangle{
+			Width:  10.0,
+			Height: 5.0,
+		}
 
 		expected := 30.0
 		actual := Perimeter(retangle)
