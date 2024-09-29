@@ -17,5 +17,10 @@ func TestRepeat(t *testing.T) {
 }
 
 func BenchmarkRepeat(b *testing.B) {
-	Repeat("S", b.N)
+
+	b.Run("should pass benchmark evaluation", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			Repeat("S", 3)
+		}
+	})
 }
