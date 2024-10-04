@@ -24,9 +24,21 @@ func (dictionary Dictionary) Add(extension, language string) error {
 
 	if existed {
 		return erroItemAlreadyExists
+	} else {
+		dictionary[extension] = language
 	}
 
-	dictionary[extension] = language
+	return nil
+}
+
+func (dictionary Dictionary) Update(extension, language string) error {
+	_, existed := dictionary[extension]
+
+	if !existed {
+		return errItemNotExistErr
+	} else {
+		dictionary[extension] = language
+	}
 
 	return nil
 }

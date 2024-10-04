@@ -55,3 +55,27 @@ func TestAdd(t *testing.T) {
 		assert.EqualError(t, err, "programming language already exists")
 	})
 }
+
+func TestUpdate(t *testing.T) {
+	t.Run("should update existing programming language if given file extension alreadys exists", func(t *testing.T) {
+		dictionary := Dictionary{
+			"go": "Go",
+		}
+
+		err := dictionary.Update("go", "Go - updated")
+
+		expected := "Go - updated"
+		actual := dictionary["go"]
+
+		assert.Equal(t, expected, actual)
+		assert.Nil(t, err)
+	})
+
+	t.Run("should return error if given file extension does NOT exist", func(t *testing.T) {
+		dictionary := Dictionary{}
+
+		err := dictionary.Update("go", "Go - updated")
+
+		assert.EqualError(t, err, "programming language does not exist")
+	})
+}
